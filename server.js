@@ -18,7 +18,7 @@ const db = require("./models");
 var PORT = process.env.PORT || 3000;
 
 // Initialize Express
-var routes = require("./controller/icebreakr.controller.js");
+var routes = require("./controller/apiRoutes.js");
 
 // Configure middleware
 
@@ -59,11 +59,4 @@ io.on('connection', function (socket) {
 
 http.listen(PORT, function () {
     console.log(`listening on *: ${PORT}`);
-});
-
-
-app.get('/api/users', function (req, res) {
-    db.User.findAll({}).then((user) => {
-        res.json(user);
-    }).catch(err => console.log(err));
 });
