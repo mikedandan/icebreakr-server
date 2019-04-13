@@ -12,10 +12,10 @@ router.get('/', function (req, res) {
 
 router.post('/api/dummycreate', function (req, res) {
     const dummy = {
-        actualName: "JP",
-        displayName: "Jpizzle",
-        email: "jpizzle@gmail.com",
-        picture: "fcku"
+        "actualName": "JP",
+        "displayName": "Jpizzle",
+        "email": "jpizzle@gmail.com",
+        "picture": "fcku"
     }
 
     console.log(dummy);
