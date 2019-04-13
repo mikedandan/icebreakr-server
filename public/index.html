@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Scrapendo</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-wrapper red darken-1">
+            <a href=" #" class="brand-logo center">Scrapendo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a id="home">Home</a></li>
+                <li><a id="grab-news">Grab News</a></li>
+                <li><a id="saved">Saved Articles</a></li>
+                <li><a id="clear-news">Clear News</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <div class="parallax-container">
+        <div class="parallax"><img src="./img/bg.jpg"></div>
+        <div class="valign center banner-text white-text shadow">
+            <h1>Scrapendo</h1>
+            <p>Why get your news from the official site, when you can get it here?!</p>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="articles main-container">
+        
+    </div>
+
+    <!-- Footer -->
+    <div class="footer red darken-1 white-text valign center">
+        You have reached the bottom of the page!!
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./js/logic.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.parallax').parallax();
+        });
+    </script>
+</body>
+
+</html>
