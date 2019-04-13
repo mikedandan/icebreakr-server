@@ -7,7 +7,11 @@ var db = require("../models");
 // var model = require("../models/burger.js");
 
 router.get('/', function (req, res) {
-    res.json("Hello World, bitch!");
+    res.json("Hello World, Z!");
+});
+
+router.get('/test', function (req, res) {
+    res.json("Hello World, work pls!");
 });
 
 router.post('/api/dummycreate', function (req, res) {
