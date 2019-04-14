@@ -36,7 +36,8 @@ app.use(routes);
 // mongoose.connect(MONGODB_URI);
 
 // Connect to the Mongo DB via Azure ////
-mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb", {
+
+mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb",  {
     auth: {
       user: process.env.COSMODDB_USER,
       password: process.env.COSMOSDB_PASSWORD
@@ -57,4 +58,10 @@ io.on('connection', function (socket) {
 
 http.listen(PORT, function () {
     console.log(`listening on *: ${PORT}`);
+});
+
+app.get('/api/users', function (req, res) {
+    db.User.findAll({}).then((user) => {
+        res.json(user);
+    }).catch(err => console.log(err));
 });
