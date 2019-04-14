@@ -16,7 +16,7 @@ const axios = require("axios");
 // Require all models
 const db = require("./models");
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 10255;
 
 // Initialize Express
 var routes = require("./controller/apiRoutes.js");
