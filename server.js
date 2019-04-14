@@ -31,19 +31,19 @@ app.use(express.json());
 app.use(routes);
 // app.use(cors());
 
-//// Connect to the Mongo DB via Heroku ////
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-mongoose.connect(MONGODB_URI);
+// //// Connect to the Mongo DB via Heroku ////
+// const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+// mongoose.connect(MONGODB_URI);
 
-//// Connect to the Mongo DB via Azure ////
-// mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb", {
-//     auth: {
-//       user: process.env.COSMODDB_USER,
-//       password: process.env.COSMOSDB_PASSWORD
-//     }
-//   })
-//   .then(() => console.log('Connection to CosmosDB successful'))
-//   .catch((err) => console.error(err));
+// Connect to the Mongo DB via Azure ////
+mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb", {
+    auth: {
+      user: process.env.COSMODDB_USER,
+      password: process.env.COSMOSDB_PASSWORD
+    }
+  })
+  .then(() => console.log('Connection to CosmosDB successful'))
+  .catch((err) => console.error(err));
 
 // HTML Routes
 
