@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-var env = require('dotenv').load(); 
+const env = require('dotenv').load(); 
 // var cors = require('cors');
 
 // Our scraping tools
