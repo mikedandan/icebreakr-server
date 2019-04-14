@@ -66,7 +66,7 @@ http.listen(PORT, function () {
 //         res.json(user);
 //     }).catch(err => console.log(err));
 // });
-app.get('/api/users', function (req, res) {
+app.get('/users', function (req, res) {
     User.find({}), function(err, foundUser) {
         foundUser.forEach(us => console.log("Found User: " + JSON.stringify(us)));
     }
