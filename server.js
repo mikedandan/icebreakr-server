@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-var env = require('dotenv').config(); 
+var env = require('dotenv').load(); 
 // var cors = require('cors');
 
 // Our scraping tools
@@ -61,7 +61,10 @@ http.listen(PORT, function () {
 });
 
 app.get('/api/users', function (req, res) {
-    db.User.findAll({}).then((user) => {
+    db.User.find({}).then((user) => {
         res.json(user);
     }).catch(err => console.log(err));
 });
+// User.find({ 'children.gender' : "male"}, function(err, foundFamily){
+//     foundFamily.forEach(fam => console.log("Found Family: " + JSON.stringify(fam)));
+// });
