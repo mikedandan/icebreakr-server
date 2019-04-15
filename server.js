@@ -62,7 +62,7 @@ http.listen(PORT, function () {
 });
 
 app.get('/api/users', function (req, res) {
-    db.User.findAll({}).then((user) => {
+    db.User.find({}).then((user) => {
         res.json(user);
     }).catch(err => console.log(err));
 });
