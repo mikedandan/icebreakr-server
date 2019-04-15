@@ -18,7 +18,7 @@ router.get('/test', function (req, res) {
 /////  POST - Create  /////
 
 // Dummy test Route
-router.post('/api/dummycreate', function (req, res) {
+router.get('/api/dummycreate', function (req, res) {
     const dummy = {
         "actualName": "JP",
         "displayName": "Jpizzle",
