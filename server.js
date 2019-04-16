@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+const passport = require("passport");
+const users = require("./routes/apiRoutes");
 
 const env = require('dotenv').config(); 
 // var cors = require('cors');
@@ -14,12 +16,12 @@ const env = require('dotenv').config();
 const axios = require("axios");
 
 // Require all models
-const db = require("./models");
+// const db = require("./models");
 
 var PORT = process.env.PORT || 3000;
 
 // Initialize Express
-var routes = require("./controller/apiRoutes.js");
+// var routes = require("./controller/apiRoutes.js");
 
 // Configure middleware
 
@@ -29,12 +31,20 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Make public a static folder
-app.use(routes);
+// app.use(routes);
 // app.use(cors());
 
 // //// Connect to the Mongo DB via Heroku ////
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-mongoose.connect(MONGODB_URI);
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/icebreakr";
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+
+
+// Passport middleware
+app.use(passport.initialize());
+// Passport config
+require("./config/passport")(passport);
+// Routes
+app.use("/api/user", users);
 
 // Connect to the Mongo DB via Azure ////
 
@@ -61,9 +71,8 @@ http.listen(PORT, function () {
     console.log(`listening on *: ${PORT}`);
 });
 
-app.get('/api/users', function (req, res) {
-    db.User.find({}).then((user) => {
-        res.json(user);
-    }).catch(err => console.log(err));
+
+app.get('/', (req, res) => {
+    res.json("Hello welcome to the Icebreakr Server!");
 });
 
