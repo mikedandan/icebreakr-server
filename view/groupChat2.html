@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>DIFFERENT Chat Messages</title>
+</head>
+
+<body>
+	<div class="messagesPrint"></div>
+
+		<input id="messages" autocomplete="off" />
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+	<script type="text/javascript">
+		const socket = io('http://localhost:3000');
+		$(document).ready(function () {
+			console.log('ready to Socket');
+			$('#messages').on('keypress',function(e) {
+				
+				var msg = this.value;
+				if(e.which == 13) {
+					console.log('hit enter')
+					socket.emit('msgToServer', msg);
+					$('#messages').val('');
+				}
+			})
+
+			socket.on('messageToApp', function (data) {
+				$('.messagesPrint').append(`${data.id} says  ${data.message}`)
+				console.log('data')
+				$('.messagesPrint').append('<br>');
+				$('.messagesPrint').append('==============')
+				$('.messagesPrint').append('<br>');
+			})
+		})
+
+
+
+	</script>
+</body>
+
+</html>
