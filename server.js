@@ -7,7 +7,7 @@ const io = require('socket.io')(http);
 const passport = require("passport");
 const users = require("./routes/apiRoutes");
 
-const env = require('dotenv').config(); 
+const env = require('dotenv').config();
 // var cors = require('cors');
 
 // Our scraping tools
@@ -60,19 +60,73 @@ app.use("/api/user", users);
 // HTML Routes
 
 // Start the server
-io.on('connection', function (socket) {
-    console.log('an user connected');
-    socket.on('disconnect', function(){
-        console.log('user disconnected');
-      });
+io.of('/').on('connection', function (socket) {
+  console.log('User ' + socket.id + ' connected');
+
+  socket.on('msgToServer', function (msg) {
+    console.log('msgToServer ' + msg);
+    io.emit('messageToApp', {
+      message: msg,
+      id: socket.id
+    })
+
+  });
+
+  socket.on('disconnect', function () {
+    console.log(socket.id + ' user disconnected');
+  });
 });
 
+const adminNamespace = io.of('/admin');
+
+adminNamespace.emit('an event', { some: 'data' });
+
+
+// Global Chat Socket (/chat) -------------------------------------------------------------------------------
+
+io.of('/group').on('connection', function (socket) {
+  console.log('User ' + socket.id + ' connected to group');
+
+  socket.on('GroupMsgToServer', function (msg) {
+    console.log('GroupMsgToServer ' + msg);
+    socket.emit('GroupMessageToApp', {
+      message: msg,
+      id: socket.id
+    })
+
+  });
+
+  socket.on('disconnect', function () {
+    console.log(socket.id + ' user disconnected');
+  });
+});
+
+
+// END Global Chat Socket -------------------------------------------------------------------------------
+
+// Private Chat Socket (/chat) -------------------------------------------------------------------------------
+
+
+// END Private Chat Socket -------------------------------------------------------------------------------
+
+// Event Chat Socket (/chat) -------------------------------------------------------------------------------
+
+
+// END Event Chat Socket -------------------------------------------------------------------------------
+
+
+// Event Admin Chat Socket (/chat) -------------------------------------------------------------------------------
+
+
+// END Event Admin Chat Socket -------------------------------------------------------------------------------
+
+
 http.listen(PORT, function () {
-    console.log(`listening on *: ${PORT}`);
+  console.log(`listening on *: ${PORT}`);
 });
 
 
 app.get('/', (req, res) => {
-    res.json("Hello welcome to the Icebreakr Server!");
+  res.json("Hello welcome to the Icebreakr Server!");
 });
 
