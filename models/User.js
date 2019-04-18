@@ -18,11 +18,11 @@ const UserSchema = new Schema({
     picture:{
         type: String,
         required: true
+    },
+    gender:{
+        type: String,
+        required: true
     }
-    // userID:{
-    //     type: String,
-    //     required: true
-    // }
 })
 
 const User = mongoose.model("users", UserSchema);
