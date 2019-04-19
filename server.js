@@ -5,7 +5,8 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const passport = require("passport");
-const users = require("./routes/apiRoutes");
+const users = require("./routes/user");
+const messages = require("./routes/message"); 
 let namespaces = require('./data/namespaces');
 
 
