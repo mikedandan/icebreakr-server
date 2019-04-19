@@ -17,29 +17,29 @@ router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
   // Check validation
   if (!isValid) {
-      return res.status(400).json(errors);
+    return res.status(400).json(errors);
   }
   User.findOne({ email: req.body.email }).then(user => {
-      if (user) {
-          return res.status(400).json({ email: "Email already exists" });
-      }
-      const newUser = new User({
-          displayName: req.body.name,
-          email: req.body.email,
-          password: req.body.password,
-          picture: req.body.picture
+    if (user) {
+      return res.status(400).json({ email: "Email already exists" });
+    }
+    const newUser = new User({
+      displayName: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      picture: req.body.picture
+    });
+    // Hash password before saving in database
+    bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(newUser.password, salt, (err, hash) => {
+        if (err) throw err;
+        newUser.password = hash;
+        newUser
+          .save()
+          .then(user => res.json(user))
+          .catch(err => console.log(err));
       });
-      // Hash password before saving in database
-      bcrypt.genSalt(10, (err, salt) => {
-          bcrypt.hash(newUser.password, salt, (err, hash) => {
-              if (err) throw err;
-              newUser.password = hash;
-              newUser
-                  .save()
-                  .then(user => res.json(user))
-                  .catch(err => console.log(err));
-          });
-      });
+    });
 
   });
 });
@@ -47,20 +47,20 @@ router.post("/register", (req, res) => {
 //Check user login
 router.post("/login", (req, res) => {
   // Form validation
-const { errors, isValid } = validateLoginInput(req.body);
-// Check validation
+  const { errors, isValid } = validateLoginInput(req.body);
+  // Check validation
   if (!isValid) {
     return res.status(400).json(errors);
   }
-const email = req.body.email;
-const password = req.body.password;
-// Find user by email
+  const email = req.body.email;
+  const password = req.body.password;
+  // Find user by email
   User.findOne({ email }).then(user => {
     // Check if user exists
     if (!user) {
       return res.status(404).json({ emailnotfound: "Email not found" });
     }
-// Check password 
+    // Check password 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
         // User matched
@@ -69,7 +69,7 @@ const password = req.body.password;
           id: user.id,
           name: user.name
         };
-// Sign token
+        // Sign token
         jwt.sign(
           payload,
           keys.secretOrKey,
@@ -96,26 +96,26 @@ const password = req.body.password;
 // Find all users
 router.get('/', (req, res) => {
   db.User.find({}).then((user) => {
-      console.log("grabbed all users from our db");
-      res.json(user);
+    console.log("grabbed all users from our db");
+    res.json(user);
   }).catch(err => console.log(err));
 });
 // Find user by email
 router.get('/:email', (req, res) => {
   db.User.find({
-      email: req.parems.email
+    email: req.parems.email
   }).then((user) => {
-      console.log("grabbed user from our db by email");
-      res.json(user);
+    console.log("grabbed user from our db by email");
+    res.json(user);
   }).catch(err => console.log(err));
 });
 // Find user by ID
 router.get('/:id', (req, res) => {
   db.User.find({
-      _id: req.parems.id
+    _id: req.parems.id
   }).then((user) => {
-      console.log("grabbed from our db by id");
-      res.json(user);
+    console.log("grabbed from our db by id");
+    res.json(user);
   }).catch(err => console.log(err));
 });
 
@@ -125,19 +125,19 @@ router.put("/:email", (req, res) => {
   const email = req.params.email;
 
   db.User.find(
-      { "email": email }
+    { "email": email }
   ).then(() => {
-      db.User.update(
-          { "email": email },
-          {
-              $set: {
-                  password: req.body.password
-              }
-          }
-      ).then((dbUser) => {
-          console.log(`Saved updated \n ${dbUser}`);
-          res.send(`User's password has been updated.`);
-      }).catch((err) => res.json(err));
+    db.User.update(
+      { "email": email },
+      {
+        $set: {
+          password: req.body.password
+        }
+      }
+    ).then((dbUser) => {
+      console.log(`Saved updated \n ${dbUser}`);
+      res.send(`User's password has been updated.`);
+    }).catch((err) => res.json(err));
   }).catch((err) => res.json(err));
 });
 
@@ -146,19 +146,19 @@ router.put("/:email", (req, res) => {
   const email = req.params.email;
 
   db.User.find(
-      { "email": email }
+    { "email": email }
   ).then(() => {
-      db.User.update(
-          { "email": email },
-          {
-              $set: {
-                  email: req.body.email
-              }
-          }
-      ).then((dbUser) => {
-          console.log(`Saved updated \n ${dbUser}`);
-          res.send(`User's email has been updated.`);
-      }).catch((err) => res.json(err));
+    db.User.update(
+      { "email": email },
+      {
+        $set: {
+          email: req.body.email
+        }
+      }
+    ).then((dbUser) => {
+      console.log(`Saved updated \n ${dbUser}`);
+      res.send(`User's email has been updated.`);
+    }).catch((err) => res.json(err));
   }).catch((err) => res.json(err));
 });
 
@@ -166,20 +166,15 @@ router.put("/:email", (req, res) => {
 router.delete("/:email", (req, res) => {
   const email = req.params.email;
   db.User.find(
-      { "email": email }
+    { "email": email }
   ).then(() => {
-      db.User.deleteOne(
-          { "email": email }
-      ).then((dbUser) => {
-          console.log(`User deleted \n ${dbUser}`);
-          res.send(`User ${email} has been deleted.`);
-      }).catch((err) => res.json(err));
+    db.User.deleteOne(
+      { "email": email }
+    ).then((dbUser) => {
+      console.log(`User deleted \n ${dbUser}`);
+      res.send(`User ${email} has been deleted.`);
+    }).catch((err) => res.json(err));
   }).catch((err) => res.json(err));
 });
 
-
-// @route POST api/users/login
-// @desc Login user and return JWT token
-// @access Public
-
-  module.exports = router;
+module.exports = router;

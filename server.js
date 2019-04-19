@@ -8,6 +8,7 @@ const passport = require("passport");
 const users = require("./routes/apiRoutes");
 let namespaces = require('./data/namespaces');
 
+
 const env = require('dotenv').config();
 // var cors = require('cors');
 
@@ -19,7 +20,7 @@ const axios = require("axios");
 // Require all models
 // const db = require("./models");
 
-var PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 // Initialize Express
 // var routes = require("./controller/apiRoutes.js");
@@ -46,6 +47,7 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 // Routes
 app.use("/api/user", users);
+app.use("/api/message", messages);
 
 // Connect to the Mongo DB via Azure ////
 
