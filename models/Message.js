@@ -10,10 +10,10 @@ const MessageSchema = new Schema({
     message:{
         type: String
     },
-    email:{
-        type: String,
-        required: true
-    },
+    // email:{
+    //     type: String,
+    //     required: true
+    // },
     picture:{
         type: String,
         required: true
@@ -28,6 +28,18 @@ const MessageSchema = new Schema({
     },
     lat:{
         type: Number,
+        required: true
+    },
+    namespace:{
+        type: String,
+        required: true
+    },
+    uid:{
+        type: String,
+        required: false
+    },
+    date:{
+        type: Date,
         required: true
     }
 })
