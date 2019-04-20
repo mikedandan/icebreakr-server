@@ -29,7 +29,7 @@ router.post('/new', (req, res) => {
 
     db.Message.create(newMessage).then((message) => {
         console.log(`Pushing to our db \n ${message}`);
-        res.send(`User Added \n ${message}`);
+        res.send(`Message Added \n ${message}`);
     }).catch(err => res.send(err));
 });
 // Createing new messages with an unique identifier
@@ -51,7 +51,7 @@ router.post('/unique-new', (req, res) => {
 
     db.Message.create(newMessage).then((message) => {
         console.log(`Pushing to our db \n ${message}`);
-        res.send(`User Added \n ${message}`);
+        res.send(`Message Added \n ${message}`);
     }).catch(err => res.send(err));
 });
 
