@@ -22,7 +22,7 @@ const UserSchema = new Schema({
     gender:{
         type: Number,
         required: true
-    }
+    },
 })
 
 const User = mongoose.model("users", UserSchema);
