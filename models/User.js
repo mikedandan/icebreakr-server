@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
-
+//updated schema
 const UserSchema = new Schema({
     password:{
         type: String,
