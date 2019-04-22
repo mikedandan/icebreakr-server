@@ -14,6 +14,8 @@ const db = require("../models");
 //Creating new User 
 router.post("/register", (req, res) => {
   // Form validation
+  console.log(`YIKES WHATS BEING SENT TO VALIDATOR: \n ${req.body}`);
+  console.log(req.body)
   const { errors, isValid } = validateRegisterInput(req.body);
   // Check validation
   if (!isValid) {
@@ -24,10 +26,11 @@ router.post("/register", (req, res) => {
       return res.status(400).json({ email: "Email already exists" });
     }
     const newUser = new User({
-      displayName: req.body.name,
+      displayName: req.body.displayName,
       email: req.body.email,
-      password: req.body.password,
-      picture: req.body.picture
+      password: req.body.password
+      // picture: req.body.picture,
+      // gender: req.body.gender
     });
     // Hash password before saving in database
     bcrypt.genSalt(10, (err, salt) => {
@@ -67,9 +70,10 @@ router.post("/login", (req, res) => {
         // Create JWT Payload
         const payload = {
           id: user.id,
-          name: user.displayName,
-          email: user.body.email,
-          picture: user.body.picture
+          displayName: user.displayName,
+          email: user.email,
+          picture: user.picture,
+          gender: user.gender
         };
         // Sign token
         jwt.sign(
@@ -105,7 +109,7 @@ router.get('/', (req, res) => {
 // Find user by email
 router.get('/:email', (req, res) => {
   db.User.find({
-    email: req.parems.email
+    email: req.params.email
   }).then((user) => {
     console.log("grabbed user from our db by email");
     res.json(user);
@@ -114,7 +118,7 @@ router.get('/:email', (req, res) => {
 // Find user by ID
 router.get('/:id', (req, res) => {
   db.User.find({
-    _id: req.parems.id
+    _id: req.params.id
   }).then((user) => {
     console.log("grabbed from our db by id");
     res.json(user);
