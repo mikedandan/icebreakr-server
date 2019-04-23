@@ -36,7 +36,7 @@ function joinNs(endpoint) {
 
     })
     nsSocket.on('messageToClients',(msg)=>{
-        console.log(msg)
+        // console.log(msg)
         const newMsg = buildHTML(msg);
         document.querySelector('#messages').innerHTML += newMsg;
     })
@@ -47,6 +47,9 @@ function formSubmission (event){
     event.preventDefault();
     const newMessage = document.querySelector('#user-message').value;
     nsSocket.emit('newMessageToServer',{text: newMessage})
+    console.log(`This is sending a message to the SERVER using 'newMessagetoServer' on joinNs.js
+    ---------------------
+    the message is: ${newMessage}`)
 }
 
 function buildHTML(msg){
