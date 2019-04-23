@@ -35,8 +35,13 @@ function joinNs(endpoint) {
         joinRoom(groupRoomName);
 
     })
+<<<<<<< HEAD
     nsSocket.on('messageToClients', (msg) => {
         console.log(msg)
+=======
+    nsSocket.on('messageToClients',(msg)=>{
+        // console.log(msg)
+>>>>>>> 64765606d0ebcd00e4f86b3ffc77ef91909c253c
         const newMsg = buildHTML(msg);
         document.querySelector('#messages').innerHTML += newMsg;
     })
@@ -46,6 +51,7 @@ function joinNs(endpoint) {
 function formSubmission(event) {
     event.preventDefault();
     const newMessage = document.querySelector('#user-message').value;
+<<<<<<< HEAD
 
     nsSocket.emit('newMessageToServer', { text: newMessage })
     $.post("http://localhost:3000/api/message/new", {
@@ -76,6 +82,12 @@ function formSubmission(event) {
     //     .catch(function (error) {
     //         console.log(error);
     //     });
+=======
+    nsSocket.emit('newMessageToServer',{text: newMessage})
+    console.log(`This is sending a message to the SERVER using 'newMessagetoServer' on joinNs.js
+    ---------------------
+    the message is: ${newMessage}`)
+>>>>>>> 64765606d0ebcd00e4f86b3ffc77ef91909c253c
 }
 
 function buildHTML(msg) {

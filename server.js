@@ -68,7 +68,7 @@ app.use("/api/message", messages);
 
 // Start the server
 io.on('connection', (socket) => {
-  console.log(socket.handshake);
+  console.log('how many namespaces there are: ', socket.handshake);
   let nsData = namespaces.map((ns) => {
     return {
       img: ns.img,
@@ -88,7 +88,7 @@ namespaces.forEach((namespace) => {
     // a socket has connected to one of our chatgroup namespaces. Send that ns group info back
     nsSocket.emit('nsRoomLoad', namespace.rooms);
     nsSocket.on('joinRoom', (roomToJoin, numberOfUsersCallback)=> {
-      console.log(nsSocket.rooms);
+      console.log('how many rooms there are: ',nsSocket.rooms);
       const roomToLeave = Object.keys(nsSocket.rooms)[1];
       nsSocket.leave(roomToLeave);
       updateUsersInRoom(namespace, roomToLeave);
@@ -105,6 +105,9 @@ namespaces.forEach((namespace) => {
       
     })
     nsSocket.on('newMessageToServer', (msg)=>{
+      console.log(msg)
+      console.log(`Server received message
+      message: ${msg.text}`)
       const fullMsg = {
         text: msg.text,
         time: Date.now(), // Sam, did you get this to work?
@@ -127,6 +130,9 @@ namespaces.forEach((namespace) => {
       // console.log(nsRoom);
       nsRoom.addMessage(fullMsg);
       io.of(namespace.endpoint).to(roomTitle).emit('messageToClients', fullMsg)
+      console.log(`Server emits the message back to the entire Namespace 'io' so everyone can see the message
+      --------
+      server message: ${JSON.stringify(fullMsg)}`)
     })
   })
 })
