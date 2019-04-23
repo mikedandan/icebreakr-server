@@ -6,8 +6,9 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const passport = require("passport");
 const users = require("./routes/user");
-const messages = require("./routes/message"); 
+const messages = require("./routes/message");
 let namespaces = require('./data/namespaces');
+const path = require("path");
 
 
 const env = require('dotenv').config();
@@ -34,6 +35,7 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Make public a static folder
+app.use(express.static("public"));
 // app.use(routes);
 // app.use(cors());
 
@@ -66,7 +68,7 @@ app.use("/api/message", messages);
 
 // Start the server
 io.on('connection', (socket) => {
-  // console.log('how many namespaces there are: ', socket.handshake);
+  //console.log('how many namespaces there are: ', socket.handshake);
   let nsData = namespaces.map((ns) => {
     return {
       img: ns.img,
@@ -74,7 +76,7 @@ io.on('connection', (socket) => {
     }
   })
   // console.log(nsData);
-// Emit this to ONLY the socket who just logged in. 
+  // Emit this to ONLY the socket who just logged in. 
   socket.emit('nsList', nsData);
 })
 
@@ -85,32 +87,40 @@ namespaces.forEach((namespace) => {
     // console.log(`${nsSocket.id} has joined ${namespace.endpoint}`)
     // a socket has connected to one of our chatgroup namespaces. Send that ns group info back
     nsSocket.emit('nsRoomLoad', namespace.rooms);
-    nsSocket.on('joinRoom', (roomToJoin, numberOfUsersCallback)=> {
-      console.log('how many rooms there are: ',nsSocket.rooms);
+    nsSocket.on('joinRoom', (roomToJoin, numberOfUsersCallback) => {
+      console.log('how many rooms there are: ', nsSocket.rooms);
       const roomToLeave = Object.keys(nsSocket.rooms)[1];
       nsSocket.leave(roomToLeave);
       updateUsersInRoom(namespace, roomToLeave);
       nsSocket.join(roomToJoin);
-  
+
       // grab specific room
-      const nsRoom = namespace.rooms.find((room)=>{
+      const nsRoom = namespace.rooms.find((room) => {
         // loop through ALL rooms in that namespace to rename 
         return room.roomTitle === roomToJoin;
       })
       // send out room history
       nsSocket.emit('historyCatchup', nsRoom.history);
       updateUsersInRoom(namespace, roomToJoin);
-      
+
     })
-    nsSocket.on('newMessageToServer', (msg)=>{
+    nsSocket.on('newMessageToServer', (msg) => {
       console.log(msg)
       console.log(`Server received message
-      message: ${msg.text}`)
+      message: ${msg.message}`)
+      // const fullMsg = {
+      //   text: msg.text,
+      //   time: Date.now(), // Sam, did you get this to work?
+      //   username: username,
+      //   avatar: 'https://mir-s3-cdn-cf.behance.net/user/115/1697063.54b7480d65618.jpg'
+      // }
+
       const fullMsg = {
-        text: msg.text,
-        time: Date.now(), // Sam, did you get this to work?
-        username: username,
-        avatar: 'https://mir-s3-cdn-cf.behance.net/user/115/1697063.54b7480d65618.jpg'
+        username: msg.username,
+        text: msg.message,
+        avatar: msg.picture,
+        userID: msg.userID,
+        time: msg.time
       }
       // console.log(fullMsg);
       // This message gets sent to all peopl in this room
@@ -120,13 +130,13 @@ namespaces.forEach((namespace) => {
       // get the keys
       const roomTitle = Object.keys(nsSocket.rooms)[1];
       // Need to find the Room obj for this room (for the history)
-      const nsRoom = namespace.rooms.find((room)=>{
+      const nsRoom = namespace.rooms.find((room) => {
         // loop through ALL rooms in that namespace to rename 
         return room.roomTitle === roomTitle;
       })
       // console.log("the room object that we made matches this NS room...")
       // console.log(nsRoom);
-      nsRoom.addMessage(fullMsg);
+      //nsRoom.addMessage(fullMsg);
       io.of(namespace.endpoint).to(roomTitle).emit('messageToClients', fullMsg)
       console.log(`Server emits the message back to the entire Namespace 'io' so everyone can see the message
       --------
@@ -136,12 +146,12 @@ namespaces.forEach((namespace) => {
 })
 
 // Updating the users in a Namespace room:
-function updateUsersInRoom(namespace, roomToJoin){
+function updateUsersInRoom(namespace, roomToJoin) {
   // send back number of users in this room to all Sockets
-  io.of(namespace.endpoint).in(roomToJoin).clients((err,clients)=>{
+  io.of(namespace.endpoint).in(roomToJoin).clients((err, clients) => {
     // console.log(`There are ${clients.length} in this room`);
     io.of(namespace.endpoint).in(roomToJoin).emit('updateMembers', clients.length)
-    
+
   })
 }
 
@@ -153,4 +163,13 @@ http.listen(PORT, function () {
 app.get('/', (req, res) => {
   res.json("Hello welcome to the Icebreakr Server!");
 });
+
+app.get('/testChat', function (req, res) {
+  res.sendFile(path.join(__dirname, "./public/groupChat1.html"));
+});
+
+// app.get("/", function(req, res) {
+//   // res.send("Welcome to the Star Wars Page!")
+//   res.sendFile(path.join(__dirname, "view.html"));
+// });
 
