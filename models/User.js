@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
-
+//updated schema
 const UserSchema = new Schema({
     password:{
         type: String,
-        required: false
+        required: true
     },
     displayName:{
         type: String,
@@ -16,13 +16,13 @@ const UserSchema = new Schema({
         required: true
     },
     picture:{
-        type: String,
+        type: Number,
         required: true
     },
     gender:{
-        type: String,
-        required: false
-    }
+        type: Number,
+        required: true
+    },
 })
 
 const User = mongoose.model("users", UserSchema);
