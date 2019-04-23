@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
+const haversine = require("haversine");
 
 /////Note to team:
 ////There are 3 identifiers within mesasges, i know a bit confusing but we will have to work with it
@@ -52,6 +53,47 @@ router.post('/unique-new', (req, res) => {
     db.Message.create(newMessage).then((message) => {
         console.log(`Pushing to our db \n ${message}`);
         res.send(`Message Added \n ${message}`);
+    }).catch(err => res.send(err));
+});
+
+//Post route to grab messages and filter it for the group chat
+//need put for exact parems passed from front end
+router.post('/filterHistory', (req, res) => {
+
+    console.log(`What was recieved from app: \n ${req.body}`);
+    console.log(req.body);
+
+    db.Message.find({
+        namespace: req.body.namespace
+    }
+    ).then((messages) => {
+        const filtered = messages.filter(msg => {
+            const start = {
+                latitude: req.body.lat,
+                longitude: req.body.lon 
+            }
+
+            const end = {
+                latitude: msg.lat,
+                longitude: msg.lon
+            }
+            console.log(`User Location: \n ${start} \n  Message Location: \n ${end}`);
+            console.log(start);
+            console.log("Message Location: ")
+            console.log(end);
+
+            return haversine(start, end, {threshold: 2, unit: 'mile'});
+        });
+        console.log("========== Filtered Messages ==========")
+        console.log(filtered);
+
+        // if messages exist / does not exist
+        if (messages && messages.length) {
+            res.json(filtered);
+        } else {
+            res.json([])
+        }
+
     }).catch(err => res.send(err));
 });
 
@@ -125,6 +167,7 @@ router.put("/:id", (req, res) => {
         }).catch((err) => res.json(err));
     }).catch((err) => res.json(err));
 });
+
 
 ///// DELETE - Delete /////
 // Delete a message by _id
