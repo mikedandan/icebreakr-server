@@ -66,7 +66,7 @@ app.use("/api/message", messages);
 
 // Start the server
 io.on('connection', (socket) => {
-  console.log('how many namespaces there are: ', socket.handshake);
+  // console.log('how many namespaces there are: ', socket.handshake);
   let nsData = namespaces.map((ns) => {
     return {
       img: ns.img,
