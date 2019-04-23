@@ -8,6 +8,7 @@ const passport = require("passport");
 const users = require("./routes/user");
 const messages = require("./routes/message"); 
 let namespaces = require('./data/namespaces');
+const path = require("path");
 
 
 const env = require('dotenv').config();
@@ -34,6 +35,7 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Make public a static folder
+app.use(express.static("public"));
 // app.use(routes);
 // app.use(cors());
 
@@ -147,4 +149,13 @@ http.listen(PORT, function () {
 app.get('/', (req, res) => {
   res.json("Hello welcome to the Icebreakr Server!");
 });
+
+app.get('/testChat',function(req,res) {
+  res.sendFile(path.join(__dirname, "./public/groupChat1.html"));
+});
+
+// app.get("/", function(req, res) {
+//   // res.send("Welcome to the Star Wars Page!")
+//   res.sendFile(path.join(__dirname, "view.html"));
+// });
 
