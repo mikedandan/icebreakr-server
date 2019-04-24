@@ -72,8 +72,8 @@ router.post("/login", (req, res) => {
           id: user.id,
           displayName: user.displayName,
           email: user.email,
-          // picture: user.picture,
-          // gender: user.gender
+          picture: user.picture,
+          gender: user.gender
         };
         // Sign token
         jwt.sign(
