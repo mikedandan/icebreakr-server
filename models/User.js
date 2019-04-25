@@ -16,7 +16,7 @@ const UserSchema = new Schema({
         required: true
     },
     picture:{
-        type: Number,
+        type: String,
         required: true
     },
     gender:{

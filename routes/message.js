@@ -77,15 +77,15 @@ router.post('/filterHistory', (req, res) => {
                 latitude: msg.lat,
                 longitude: msg.lon
             }
-            console.log(`User Location: \n ${start} \n  Message Location: \n ${end}`);
-            console.log(start);
-            console.log("Message Location: ")
-            console.log(end);
+            // console.log(`User Location: \n ${start} \n  Message Location: \n ${end}`);
+            // console.log(start);
+            // console.log("Message Location: ")
+            // console.log(end);
 
             return haversine(start, end, {threshold: 2, unit: 'mile'});
         });
-        console.log("========== Filtered Messages ==========")
-        console.log(filtered);
+        // console.log("========== Filtered Messages ==========")
+        // console.log(filtered);
 
         // if messages exist / does not exist
         if (messages && messages.length) {
