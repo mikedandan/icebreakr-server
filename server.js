@@ -137,7 +137,8 @@ namespaces.forEach((namespace) => {
       // console.log("the room object that we made matches this NS room...")
       // console.log(nsRoom);
       //nsRoom.addMessage(fullMsg);
-      io.of(namespace.endpoint).to(roomTitle).emit('messageToClients', fullMsg)
+      //.of(namespace.endpoint).to(roomTitle)
+      io.emit('messageToClients', fullMsg)
       console.log(`Server emits the message back to the entire Namespace 'io' so everyone can see the message
       --------
       server message: ${JSON.stringify(fullMsg)}`)
