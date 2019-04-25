@@ -80,7 +80,7 @@ io.on('connection',(socket)=>{
   socket.on('newMessageToServer',(msg)=>{
       // console.log(msg)
       console.log("MESSAGE IS SENT FROM CLIENT")
-      // io.emit('messageToClients',{text:msg.text})
+      io.emit('messageToClients',{text:msg.text})
   })
 });
 
