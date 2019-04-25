@@ -83,7 +83,7 @@ io.on('connection', (socket) => {
 namespaces.forEach((namespace) => {
   // console.log(namespace.rooms);
   io.of(namespace.endpoint).on('connection', (nsSocket) => {
-    const username = nsSocket.handshake.query.username;
+    //const username = nsSocket.handshake.query.username;
     // console.log(`${nsSocket.id} has joined ${namespace.endpoint}`)
     // a socket has connected to one of our chatgroup namespaces. Send that ns group info back
     nsSocket.emit('nsRoomLoad', namespace.rooms);
