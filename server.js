@@ -7,6 +7,7 @@ const io = require('socket.io')(http);
 const passport = require("passport");
 const users = require("./routes/user");
 const messages = require("./routes/message");
+const events = require("./routes/event");
 let namespaces = require('./data/namespaces');
 const path = require("path");
 
@@ -51,6 +52,7 @@ require("./config/passport")(passport);
 // Routes
 app.use("/api/user", users);
 app.use("/api/message", messages);
+app.use("/api/event", events);
 
 // Connect to the Mongo DB via Azure ////
 
