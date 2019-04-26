@@ -19,7 +19,7 @@ const MessageSchema = new Schema({
         required: true
     },
     userID:{
-        type: Number,
+        type: String,
         required: true
     },
     lon:{
