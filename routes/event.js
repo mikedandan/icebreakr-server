@@ -30,7 +30,7 @@ router.post("/newevent", (req, res) => {
 
   /////  GET - Read  /////
   // Find all events
-  router.get('/events', (req, res) => {
+  router.get('/', (req, res) => {
     db.Event.find({}).then((event) => {
       console.log("grabbed all events from our db");
       res.json(event);
