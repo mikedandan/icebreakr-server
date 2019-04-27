@@ -97,6 +97,19 @@ router.post('/filterHistory', (req, res) => {
     }).catch(err => res.send(err));
 });
 
+router.post('/eventHistory', (req, res) => {
+
+    console.log(`What was recieved from app: \n ${req.body}`);
+    console.log(req.body);
+
+    db.Message.find({
+        namespace: req.body.namespace
+    }
+    ).then((messages) => {
+        res.json(messages);
+    }).catch(err => res.send(err));
+});
+
 /////  GET - Read  /////
 // Find all messages from db regardless of namespace
 router.get('/', (req, res) => {
