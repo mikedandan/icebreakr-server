@@ -137,7 +137,7 @@ router.get('/:uid', (req, res) => {
 });
 
 // Find all messages by namespace (Group Chat)
-router.get('/:nsp', (req, res) => {
+router.get('nsp/:nsp', (req, res) => {
     db.Message.find({
         namespace: req.parems.nsp
     }).then((message) => {
