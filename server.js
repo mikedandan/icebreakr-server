@@ -41,8 +41,8 @@ app.use(express.static("public"));
 // app.use(cors());
 
 // //// Connect to the Mongo DB via Heroku ////
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/icebreakr";
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+// const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/icebreakr";
+// mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 
 // Passport middleware
@@ -56,14 +56,14 @@ app.use("/api/event", events);
 
 // Connect to the Mongo DB via Azure ////
 
-// mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb",  {
-//     auth: {
-//       user: process.env.COSMODDB_USER,
-//       password: process.env.COSMOSDB_PASSWORD
-//     }
-//   })
-//   .then(() => console.log('Connection to CosmosDB successful'))
-//   .catch((err) => console.error(err));
+mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb",  {
+    auth: {
+      user: icebreakr,
+      password: WOpa2isrtPdg7E6HzE4O16pr8BstnfDZT4UVSG29kdWMcF6LscO9t0G1O9uO4Ppq5Ta4DOoFgYKFRjQxlsVnhw==
+    }
+  })
+  .then(() => console.log('Connection to CosmosDB successful'))
+  .catch((err) => console.error(err));
 
 // HTML Routes
 
