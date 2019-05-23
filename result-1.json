@@ -1,0 +1,291 @@
+{
+	"result": {
+		"ok": 1,
+		"n": 28
+	},
+	"ops": [
+		{
+			"_id": "5cc210edd9463b0017f2867f",
+			"displayName": "Ripplerazor Vulture",
+			"email": "Mike@email.com",
+			"password": "$2a$10$1ivef2n..I0jacNQ2iXpleWKcoCfSTDw3imAGtIMoyFoJ2obBTyey",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_dolphin.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc218c4d9463b0017f28685",
+			"displayName": "Quillhoof Face",
+			"email": "sam@email.com",
+			"password": "$2a$10$BGOA3LRvbdGODk449UbCQehY.SWEbN/kz34YZEG9fn7mMLZL82Bui",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_panda.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc25e3d6ba3eb00178cb50a",
+			"displayName": "Longhorn Gambler",
+			"email": "derek@email.com",
+			"password": "$2a$10$JMp8NSJe4k5tlYhm9l/0rObjHwN94c0LX3IT2FEFzciKWamGSP5pK",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_panda.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc260f16ba3eb00178cb510",
+			"displayName": "Fiercegoose Collar",
+			"email": "magallan03@yahoo.com",
+			"password": "$2a$10$42rbrp/c68IOn6JP0O52muiAZDKAgSA4EdkAJu6vRSigEzf.Uyg/2",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_rhyno.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc2624e6ba3eb00178cb51d",
+			"displayName": "Prismvole Ox",
+			"email": "ulrich.urhan@gmail.com",
+			"password": "$2a$10$cqi86RSYfz46teeqav/bu.buuSuSCBhg2JkfOmJmikC219TsIIdbK",
+			"picture": "1",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc26b9b6ba3eb00178cb525",
+			"displayName": "Venomspider Pirate",
+			"email": "jp@gmail.com",
+			"password": "$2a$10$qvLkuQA2masaiQOlu3Xx0OevxDU4UG17BshC6h1X38hckyhrx7B8a",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_dolphin.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc26d0c6ba3eb00178cb527",
+			"displayName": "Waxchin Back",
+			"email": "mikedandan2@gmail.com",
+			"password": "$2a$10$hy.ug4bDRKKcOQs5t3CHsuHEZgq4xuhWjjuztBcqqK6XT6X0ulsDa",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_lion.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc26d516ba3eb00178cb528",
+			"displayName": "Blazeantelope Howler",
+			"email": "testing@gmail.com",
+			"password": "$2a$10$BPsPfuudDWtSPBC5eXwjiel3xkX5b/YGEXsdnmGdIYllfODB9bGCW",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_gariffe.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc26db16ba3eb00178cb529",
+			"displayName": "Valleyfisher Lifter",
+			"email": "joe@email.com",
+			"password": "$2a$10$4xCDoRreApEUWFE6h6uFb.whil662jHwF3IU4ihUVmMpXszORriXa",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_lion.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc26e2c6ba3eb00178cb52a",
+			"displayName": "Platinumhorn Venom",
+			"email": "john@email.com",
+			"password": "$2a$10$FiZT8KelnXNvIBjoDcoHJ.6UwwI/wb11TqIdEjjrvxACRJjmH88a2",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_dog.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc26e676ba3eb00178cb52b",
+			"displayName": "Jeweltalon Dragon",
+			"email": "md@email.com",
+			"password": "$2a$10$NUb4NMGUEiYDUNGwystate32f9RKU2IzZ4VylzdYIELntDqwJ491u",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_dog.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc26ebf6ba3eb00178cb52c",
+			"displayName": "Coconutslicer Beak",
+			"email": "mad@email.com",
+			"password": "$2a$10$PXn9xbu1uirqJeilNWf4g.Ho/7uXBgPUFqFb7OTtugtuhvdZHLBu6",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_ox.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc270786ba3eb00178cb52d",
+			"displayName": "Seasonleg Prince",
+			"email": "jake@email.com",
+			"password": "$2a$10$.DFSX3z8UgA76hPO1B2gEe2zuS8qzXl9QvBxtTJ9jFTfaMYBKAQ2S",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_hedgehog.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc3776aaca0b80017397ed0",
+			"displayName": "Crystalbison Chopper",
+			"email": "fjhji@email.com",
+			"password": "$2a$10$waAeFhngwEnxl3VJSVoEoeUeYDmR1b3BTPT7/qZCi7rIB1oHJ/K8C",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_walrus.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc3c0a02d28110017fd1b4d",
+			"displayName": "Crystalfollower Lancer",
+			"email": "jpizzle@gmail.com",
+			"password": "$2a$10$/VUTCoNnji4pTFgXiAvIN.EudV1QdHaqwicx2a/acrzefke1/ZhEm",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_dog.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc3c59b2d28110017fd1b4e",
+			"displayName": "Patternquester Weaver",
+			"email": "Pizzle@gmail.com",
+			"password": "$2a$10$rXZvaKC1XLH8r47nj4blW.oN3Oc1n.jnU/iZ3sDWbgcQKF1mVNX2a",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_dog.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc3dbc40e6316001776b356",
+			"displayName": "Powerrabbit Pegasus",
+			"email": "Derek3@email.com",
+			"password": "$2a$10$5T5skp4zmfQrgWVAAcoIE.SxqRcJoWtKfgJq.AfeBYp.2yJ3247Hy",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_hedgehog.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc3dc9a0e6316001776b35d",
+			"displayName": "Boghorse Knight",
+			"email": "Magallan03@yahoo.com",
+			"password": "$2a$10$eRYqzHtX9wtuhcfrIJI07.Rvfwjfwybu9C7JbnUHDhyMr79JNoQ/e",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_walrus.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc3e67b0e6316001776b376",
+			"displayName": "Bloomcentaur Storm",
+			"email": "Jpuente@hdban.com",
+			"password": "$2a$10$V10mXDU.eIH.eD5W.O60V.igar7jDPZvoQRmzktbLPW/hGaUwyZmK",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_polar_bear.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc3fabe3762840017db3f5f",
+			"displayName": "Holyantler Dagger",
+			"email": "ulrich@email.com",
+			"password": "$2a$10$MlNhosi4YthLL2ZCiVXOB.Bm7q96wRcFAjsfpNbBcSx3R6aZTlHrC",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_brown_bear.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc41a803762840017db3f84",
+			"displayName": "Boombelly Raver",
+			"email": "Sup@gmail.com",
+			"password": "$2a$10$0B3VLBkrPv97Tt46IaiOBOoBce3VAdxCLZBFtGjjS6KhWu/GFMDjS",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_polar_bear.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc424b53762840017db3f90",
+			"displayName": "Dogshield Crystal",
+			"email": "FsbdjVg@gmail.com",
+			"password": "$2a$10$tQLrWhF4RJA/BZ8DuENZ5u2utGyXRYfaULAmg58q1UZ92hpyAOMLa",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_kowala.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc47d725339430017c9bd66",
+			"displayName": "Muckarm Hunter",
+			"email": "Jpizzzzzzzle@gmail.com",
+			"password": "$2a$10$8/EZ6iOYmgc3UNTCQilSiuU.1tUOOqzbHu0AtWDqIjD2l8zAk2Oqa",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_zebra.png",
+			"gender": 2,
+			"__v": 0
+		},
+		{
+			"_id": "5cc47ee55339430017c9bd70",
+			"displayName": "Madpig Killer",
+			"email": "Jpizzzzzzzzzzle@gmail.com",
+			"password": "$2a$10$tJ4cMiZSBhg93epEcHl.9.L5e6mGuiB1pgoLjD4HXDwva3ePUU.4.",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_dog.png",
+			"gender": 2,
+			"__v": 0
+		},
+		{
+			"_id": "5cc47fad5339430017c9bd71",
+			"displayName": "Ashsentry Cat",
+			"email": "Supjsjsb@gmail.com",
+			"password": "$2a$10$yiU7mGaKYzDWHiIWnlBH9.PHAsravzApN3F4Dx3VVRntT4ZjTsEVy",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_polar_bear.png",
+			"gender": 2,
+			"__v": 0
+		},
+		{
+			"_id": "5cc497aa5339430017c9bd7e",
+			"displayName": "Daisyfoot Nose",
+			"email": "Jpizzzzzzzzzzzle@gmail.com",
+			"password": "$2a$10$3ZeQYgHtsTQkK5sWoWmOQ.6kNdP9.m1WOyjmzN1XTYrDnhu95gvbq",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_kowala.png",
+			"gender": 2,
+			"__v": 0
+		},
+		{
+			"_id": "5cc4ae395339430017c9bda5",
+			"displayName": "Pondsong Wyrm",
+			"email": "Blah@blah.com",
+			"password": "$2a$10$AfiWcDnRKvV1WxHESk3EzeEjn410Xmb56OZ.Y/MkhpPH3GwC5ArZ6",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_panda.png",
+			"gender": 0,
+			"__v": 0
+		},
+		{
+			"_id": "5cc4ae3a5339430017c9bda6",
+			"displayName": "Pondsong Wyrm",
+			"email": "Blah44@blah.com",
+			"password": "$2a$10$1CXVilDAmfKzzfwbphTW2.hyE3dRUuT83kQb1a.i4T4UsdGE4WC4m",
+			"picture": "https://icebreakr-serv.herokuapp.com/images/RandomAnimals_panda.png",
+			"gender": 0,
+			"__v": 0
+		}
+	],
+	"insertedCount": 28,
+	"insertedIds": [
+		"5cc210edd9463b0017f2867f",
+		"5cc218c4d9463b0017f28685",
+		"5cc25e3d6ba3eb00178cb50a",
+		"5cc260f16ba3eb00178cb510",
+		"5cc2624e6ba3eb00178cb51d",
+		"5cc26b9b6ba3eb00178cb525",
+		"5cc26d0c6ba3eb00178cb527",
+		"5cc26d516ba3eb00178cb528",
+		"5cc26db16ba3eb00178cb529",
+		"5cc26e2c6ba3eb00178cb52a",
+		"5cc26e676ba3eb00178cb52b",
+		"5cc26ebf6ba3eb00178cb52c",
+		"5cc270786ba3eb00178cb52d",
+		"5cc3776aaca0b80017397ed0",
+		"5cc3c0a02d28110017fd1b4d",
+		"5cc3c59b2d28110017fd1b4e",
+		"5cc3dbc40e6316001776b356",
+		"5cc3dc9a0e6316001776b35d",
+		"5cc3e67b0e6316001776b376",
+		"5cc3fabe3762840017db3f5f",
+		"5cc41a803762840017db3f84",
+		"5cc424b53762840017db3f90",
+		"5cc47d725339430017c9bd66",
+		"5cc47ee55339430017c9bd70",
+		"5cc47fad5339430017c9bd71",
+		"5cc497aa5339430017c9bd7e",
+		"5cc4ae395339430017c9bda5",
+		"5cc4ae3a5339430017c9bda6"
+	]
+}

@@ -189,7 +189,7 @@ http.listen(PORT, function () {
 
 
 app.get('/', (req, res) => {
-  res.json("Hello welcome to the Icebreakr Server!");
+  res.json("Hello welcome to the Icebreakr Servers!");
 });
 
 app.get('/testChat', function (req, res) {
