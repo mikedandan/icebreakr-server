@@ -55,8 +55,15 @@ app.use("/api/message", messages);
 app.use("/api/event", events);
 
 // Connect to the Mongo DB via Azure ////
-
-// mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb",  {
+mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb", {
+  auth: {
+    user: process.env.COSMODDB_USER,
+    password: process.env.COSMOSDB_PASSWORD
+  }
+})
+.then(() => console.log('Connection to CosmosDB successful'))
+.catch((err) => console.error(err));
+// mongoose.connect("mongodb://icebreakr:WOpa2isrtPdg7E6HzE4O16pr8BstnfDZT4UVSG29kdWMcF6LscO9t0G1O9uO4Ppq5Ta4DOoFgYKFRjQxlsVnhw%3D%3D@icebreakr.documents.azure.com:10255/?ssl=true"?ssl=true&replicaSet=globaldb",  {
 //     auth: {
 //       user: icebreakr,
 //       password: WOpa2isrtPdg7E6HzE4O16pr8BstnfDZT4UVSG29kdWMcF6LscO9t0G1O9uO4Ppq5Ta4DOoFgYKFRjQxlsVnhw==
@@ -65,10 +72,10 @@ app.use("/api/event", events);
 //   .then(() => console.log('Connection to CosmosDB successful'))
 //   .catch((err) => console.error(err));
 
-var mongoClient = require("mongodb").MongoClient;
-mongoClient.connect("mongodb://icebreakr:WOpa2isrtPdg7E6HzE4O16pr8BstnfDZT4UVSG29kdWMcF6LscO9t0G1O9uO4Ppq5Ta4DOoFgYKFRjQxlsVnhw%3D%3D@icebreakr.documents.azure.com:10255/?ssl=true", function (err, client) {
-  client.close();
-});
+// var mongoClient = require("mongodb").MongoClient;
+// mongoClient.connect("mongodb://icebreakr:WOpa2isrtPdg7E6HzE4O16pr8BstnfDZT4UVSG29kdWMcF6LscO9t0G1O9uO4Ppq5Ta4DOoFgYKFRjQxlsVnhw%3D%3D@icebreakr.documents.azure.com:10255/?ssl=true", function (err, client) {
+//   client.close();
+// });
 
 // HTML Routes
 
